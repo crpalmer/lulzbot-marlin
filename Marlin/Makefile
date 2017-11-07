@@ -355,6 +355,8 @@ ifeq ($(TMC2630), 1)
 CXXSRC += TMC2130Stepper.cpp TMC2130Stepper_CHOPCONF.cpp TMC2130Stepper_COOLCONF.cpp TMC2130Stepper_DRV_STATUS.cpp TMC2130Stepper_GCONF.cpp TMC2130Stepper_IHOLD_IRUN.cpp TMC2130Stepper_PWMCONF.cpp
 endif
 
+LD_SUFFIX:=$(LD_SUFFIX) -l$(MCU)
+
 #Check for Arduino 1.0.0 or higher and use the correct source files for that version
 ifeq ($(shell [ $(ARDUINO_VERSION) -ge 100 ] && echo true), true)
 CXXSRC += main.cpp
