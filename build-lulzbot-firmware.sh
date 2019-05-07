@@ -13,6 +13,8 @@
 # FOR A PARTICULAR PURPOSE.  See the GNU AGPL for more details.
 #
 
+sed -i "s/#define LULZBOT_FW_VERSION \"\\(.[0-9]\\+\\)\"/#define LULZBOT_FW_VERSION \"\\1-crp\"/" Marlin/Conditionals_LulzBot.h
+
 ####
 # The following variables list the models and toolheads to build for:
 
