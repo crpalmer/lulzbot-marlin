@@ -2459,11 +2459,13 @@ void clean_up_after_endstop_or_probe_move() {
 
     feedrate_mm_s = old_feedrate_mm_s;
 
+#if ! defined(LULZBOT_USE_AUTOLEVELING)
     if (isnan(measured_z)) {
       LCD_MESSAGEPGM(MSG_ERR_PROBING_FAILED);
       SERIAL_ERROR_START();
       SERIAL_ERRORLNPGM(MSG_ERR_PROBING_FAILED);
     }
+#endif
 
     #if ENABLED(DEBUG_LEVELING_FEATURE)
       if (DEBUGGING(LEVELING)) SERIAL_ECHOLNPGM("<<< probe_pt");
